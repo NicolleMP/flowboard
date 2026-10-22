@@ -1,0 +1,26 @@
+# Front-end
+**/node_modules/
+**/dist/
+**/coverage/
+*.tsbuildinfo
+
+# Back-end
+**/target/
+*.class
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
