@@ -43,6 +43,33 @@ const priorityTasks = [
   },
 ];
 
+const activeProjects = [
+  {
+    name: "Layout Plataforma Web",
+    progress: 78,
+    tasks: "24 de 31 tarefas",
+    color: "bg-indigo-600",
+  },
+  {
+    name: "App Mobile iOS & Android",
+    progress: 45,
+    tasks: "18 de 40 tarefas",
+    color: "bg-blue-600",
+  },
+  {
+    name: "Integração Backend",
+    progress: 92,
+    tasks: "12 de 13 tarefas",
+    color: "bg-emerald-600",
+  },
+  {
+    name: "Design System v2.0",
+    progress: 60,
+    tasks: "15 de 25 tarefas",
+    color: "bg-indigo-500",
+  },
+];
+
 export const DashboardOverview = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -91,6 +118,53 @@ export const DashboardOverview = () => {
                   {task.date}
                 </span>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Coluna 3: Projetos Ativos */}
+      <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <h2 className="text-base font-bold text-slate-800">
+              Projetos Ativos
+            </h2>
+            <span className="text-xs bg-slate-100 font-semibold text-slate-600 px-2 py-0.5 rounded-full">
+              4
+            </span>
+          </div>
+          <a
+            href="#"
+            className="text-xs font-semibold text-indigo-600 hover:text-indigo-700"
+          >
+            Ver todos
+          </a>
+        </div>
+
+        <div className="space-y-5 pt-1">
+          {activeProjects.map((project, idx) => (
+            <div key={idx} className="space-y-1.5">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-slate-800 flex items-center gap-2">
+                  <span
+                    className={`w-2 h-2 rounded-full ${project.color}`}
+                  ></span>
+                  {project.name}
+                </span>
+                <span className="font-semibold text-indigo-600">
+                  {project.progress}%
+                </span>
+              </div>
+              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div
+                  className={`h-full ${project.color} rounded-full`}
+                  style={{ width: `${project.progress}%` }}
+                ></div>
+              </div>
+              <span className="text-[11px] text-slate-400 block">
+                {project.tasks}
+              </span>
             </div>
           ))}
         </div>
